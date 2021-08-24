@@ -1,0 +1,148 @@
+@import url("https://fonts.googleapis.com/css2?family=Lato:wght@300&display=swap");
+
+:root {
+  --primary-background-color: #333;
+  --secondary-background-color: #222;
+  --primary-font-color: #fab957;
+  --secondary-font-color: #f59505;
+}
+
+* {
+  box-sizing: border-box;
+  padding: 0;
+  margin: 0;
+  background-color: var(--primary-background-color);
+}
+
+body {
+  font-family: "Lato", sans-serif;
+  color: var(--primary-font-color);
+  line-height: 1.6;
+}
+
+nav,
+section,
+footer {
+  padding: 50px;
+}
+
+ul {
+  list-style-type: none;
+}
+
+a {
+  text-decoration: none;
+  color: var(--primary-font-color);
+}
+
+h1,
+h2 {
+  font-weight: 300;
+  line-height: 1.2;
+  margin: 10px 0;
+}
+
+p {
+  margin: 10px 0;
+}
+
+input[type="text"] #user {
+  border: 2px solid;
+  border-radius: 4px;
+  height: 18px;
+  width: 32px;
+  padding: 10px 15px;
+  margin: 10px 5px;
+  font-size: 16px;
+  color: var(--secondary-font-color);
+}
+
+button {
+  background-color: var(--primary-font-color);
+}
+
+/* ---- NavBar ---- */
+
+.navbar {
+  background-color: var(--secondary-background-color);
+  color: var(--secondary-font-color);
+  max-width: 1100px;
+  margin: 0 auto;
+  overflow: auto;
+  padding: 0 40px;
+}
+
+.navbar ul {
+  display: flex;
+}
+
+.navbar a {
+  color: var(--secondary-font-color);
+  padding: 10px;
+  margin: 0 5px;
+}
+
+.navbar a:hover {
+  border-bottom: 2px var(--secondary-font-color) solid;
+}
+
+.navbar .flex {
+  justify-content: space-between;
+}
+
+.container {
+  max-width: 1100px;
+  margin: 0 auto;
+  overflow: auto;
+  padding: 0 40px;
+}
+
+/* Tickets list */
+
+.tickets {
+  max-width: 1100px;
+  margin: 0 auto;
+  overflow: auto;
+  padding: 0 40px;
+}
+
+.tickets .listing .card {
+  /* Add shadows to create the "card" effect */
+  background-color: var(--secondary-background-color);
+  box-shadow: 0 4px 8px 0 rgba(255, 166, 0, 0.452);
+  transition: 0.3s;
+  width: 20%;
+  color: var(--secondary-font-color);
+}
+
+/* Tablets and under */
+@media (max-width: 768px) {
+  .grid,
+  .showcase .grid,
+  .stats .grid,
+  .cli .grid,
+  .cloud .grid,
+  .features-main .grid,
+  .docs-main .grid {
+    grid-template-columns: 1fr;
+    grid-template-rows: 1fr;
+  }
+}
+
+@media (max-width: 500px) {
+  .navbar {
+    height: 110px;
+  }
+
+  .navbar .flex {
+    flex-direction: column;
+  }
+
+  .navbar ul {
+    padding: 10px;
+  }
+
+  .main {
+    width: 500px;
+  }
+}

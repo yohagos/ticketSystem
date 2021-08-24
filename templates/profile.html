@@ -1,0 +1,57 @@
+<!doctype html>
+<html lang="en">
+    <head>
+        <meta charset="utf-8">
+        <title>Profile</title>
+        <link rel="stylesheet" type="text/css" href="/static/style.css"/>
+        <link rel="stylesheet" type="text/css" href="/static/utilities.css"/>
+    </head>
+
+    <body>
+        <!-- NAV -->
+        <div class="navbar">
+            <div class="container flex">
+                <nav>
+                    <ul>
+                        <li><a href="/bugtype/create">Create Bugtypes</a></li>
+                        <li><a href="/ticket/create">Create Tickets</a></li>
+                        <li><a href="/logout">Logout</a></li>
+                    </ul>
+                </nav>
+            </div>
+        </div>
+            
+        <!-- MAIN -->
+        <section class="main">
+            <div class="container">
+                <br>
+                <h1>Hello {{ .User.GetUserName }}</h1>
+            </div>
+        </section>
+
+        {{ if .DisplayTickets }}
+        <section class="tickets">
+            <h1>Your Tickets:</h1>
+            <div class="listing">
+                {{ range .Tickets }}
+                <div class="card">
+                    <a href="/ticket/details/{{ .GetTicketName }}"><h3>{{ .GetTicketName }}</h3></a>
+                    <p>{{ .GetTicketStatus }}</p>
+                </div>
+                {{ end }}
+            </div>
+        </section>
+        {{ end }}
+
+        <!-- FOOTER -->
+        <footer class="footer bg-dark py-5">
+            <div class="container grid grid-3">
+                <div>
+                    <h1>BugTracker
+                    </h1>
+                    <p>Copyright &copy; 2020</p>
+                </div>
+            </div>
+        </footer>
+    </body>
+</html>

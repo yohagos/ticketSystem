@@ -1,0 +1,10 @@
+## Editor / IDE / VSCODE Folders
+~
+~/.vscode-root
+
+## Scripts
+runLibImport.sh
+
+## GO Modules
+go.mod
+go.sum

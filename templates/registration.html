@@ -1,0 +1,56 @@
+<!doctype html>
+<html lang="en">
+    <head>
+        <meta charset="utf-8">
+        <title>Registration</title>
+        <link rel="stylesheet" type="text/css" href="/static/style.css"/>
+        <link rel="stylesheet" type="text/css" href="/static/utilities.css"/>
+    </head>
+
+    <body>
+        <!-- Navbar -->
+        <div class="navbar">
+            <div class="container flex">
+                <nav>
+                    <ul>
+                        <li><a href="/">Home</a></li>
+                        <li><a href="/login">Sign In</a></li>
+                    </ul>
+                </nav>
+            </div>
+        </div>
+        
+        <br>
+            {{ if . }}
+                <div class="error"> {{ . }}</div>
+            {{ end }}
+        <br>
+
+        <form method="post">
+            <input id="userName" name="name" type="text" placeholder="Name"><br>
+            <input id="userLastname" name="lastname" type="text" placeholder="Lastname"><br>
+            <input id="userEmail" name="email" type="text" placeholder="Email"><br>
+            <input id="userPassword" name="password" type="text" placeholder="Password"><br>
+            
+            <button type="submit">Registry</button>
+        </form>
+
+        
+        <!-- FOOTER -->
+        <footer class="footer bg-dark py-5">
+            <div class="container grid grid-3">
+                <div>
+                    <h1>BugTracker
+                    </h1>
+                    <p>Copyright &copy; 2020</p>
+                </div>
+                <div class="social">
+                    <a href="#"><i class="fab fa-github fa-2x"></i></a>
+                    <a href="#"><i class="fab fa-facebook fa-2x"></i></a>
+                    <a href="#"><i class="fab fa-instagram fa-2x"></i></a>
+                    <a href="#"><i class="fab fa-twitter fa-2x"></i></a>
+                </div>
+            </div>
+        </footer>
+    </body>
+</html>
