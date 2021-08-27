@@ -9,16 +9,14 @@
 
     <body>
         <!-- NAV -->
-        <div class="navbar">
+        <section class="navbar">
             <div class="container flex">
-                <nav>
                     <ul>
                         <li><a href="/">Home</a></li>
                         <li><a href="/registration">Sign Up</a></li>
                     </ul>
-                </nav>
             </div>
-        </div>
+        </section>
 
         <!-- MAIN -->
         <section class="main">
@@ -27,16 +25,17 @@
                 <div class="error"> {{ . }}</div>
             {{ end }}
             <br>
-            
-            <form method="post">
-                <input type="text" name="username" id="user" placeholder="Email">
-                <input type="text" name="password" id="passwd" placeholder="Password">
-                <button type="submit">Login</button>
-            </form>
+            <div class="form">
+                <form method="post">
+                    <input type="text" name="username" id="user" placeholder="Email">
+                    <input type="text" name="password" id="passwd" placeholder="Password">
+                    <button type="submit">Login</button>
+                </form>
+            </div>
         </section>
 
         <!-- FOOTER -->
-        <footer class="footer bg-dark py-5">
+        <section class="footer">
             <div class="container grid grid-3">
                 <div>
                     <h1>BugTracker
@@ -50,6 +49,6 @@
                     <a href="#"><i class="fab fa-twitter fa-2x"></i></a>
                 </div>
             </div>
-        </footer>
+        </section>
     </body>
 </html>

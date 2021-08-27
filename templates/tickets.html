@@ -9,39 +9,37 @@
 
     <body>
         <!-- NAV -->
-        <div class="navbar">
+        <section class="navbar">
             <div class="container flex">
-                <nav>
                     <ul>
                         <li><a href="/profile/{{.User}}">Profile</a></li>
                     </ul>
-                </nav>
             </div>
         </div>
 
         <!-- MAIN -->
         <section class="main">
             <br>
-            <br>
             <h1>Create Tickets</h1>
-
-            <form method="post">
-                <select name="bugtype" id="ticketBugtype">
-                    {{ range .List }}
-                        <option value="{{ . }}">{{ . }}</option>
-                    {{ end }}
-                </select>
-                <select name="status" id="ticketStatus">
-                    <option>New</option>
-                    <option>Implemented</option>
-                    <option>Testing</option>
-                </select>
-                <button type="submit">Create New Ticket</button>
-            </form>
+            <div class="form">
+                <form method="post">
+                    <select name="bugtype" id="ticketBugtype">
+                        {{ range .List }}
+                            <option value="{{ . }}">{{ . }}</option>
+                        {{ end }}
+                    </select>
+                    <select name="status" id="ticketStatus">
+                        <option>New</option>
+                        <option>Implemented</option>
+                        <option>Testing</option>
+                    </select>
+                    <button type="submit">Create New Ticket</button>
+                </form>
+            </div>
         </section>
 
         <!-- FOOTER -->
-        <footer class="footer bg-dark py-5">
+        <section class="footer">
             <div class="container grid grid-3">
                 <div>
                     <h1>BugTracker
@@ -49,6 +47,6 @@
                     <p>Copyright &copy; 2020</p>
                 </div>
             </div>
-        </footer>
+        </section>
     </body>
 </html>

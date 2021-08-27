@@ -9,35 +9,35 @@
 
     <body>
         <!-- Navbar -->
-        <div class="navbar">
+        <section class="navbar">
             <div class="container flex">
-                <nav>
                     <ul>
                         <li><a href="/">Home</a></li>
                         <li><a href="/login">Sign In</a></li>
                     </ul>
-                </nav>
             </div>
-        </div>
+        </section>
         
-        <br>
-            {{ if . }}
-                <div class="error"> {{ . }}</div>
-            {{ end }}
-        <br>
-
-        <form method="post">
-            <input id="userName" name="name" type="text" placeholder="Name"><br>
-            <input id="userLastname" name="lastname" type="text" placeholder="Lastname"><br>
-            <input id="userEmail" name="email" type="text" placeholder="Email"><br>
-            <input id="userPassword" name="password" type="text" placeholder="Password"><br>
-            
-            <button type="submit">Registry</button>
-        </form>
-
+        <section class="main">
+            <br>
+                {{ if . }}
+                    <div class="error"> {{ . }}</div>
+                {{ end }}
+            <br>
+            <div class="form">
+                <form method="post">
+                    <input id="userName" name="name" type="text" placeholder="Name"><br>
+                    <input id="userLastname" name="lastname" type="text" placeholder="Lastname"><br>
+                    <input id="userEmail" name="email" type="text" placeholder="Email"><br>
+                    <input id="userPassword" name="password" type="text" placeholder="Password"><br>
+                    
+                    <button type="submit">Registry</button>
+                </form>
+            </div>
+        </section>
         
         <!-- FOOTER -->
-        <footer class="footer bg-dark py-5">
+        <section class="footer">
             <div class="container grid grid-3">
                 <div>
                     <h1>BugTracker
@@ -51,6 +51,6 @@
                     <a href="#"><i class="fab fa-twitter fa-2x"></i></a>
                 </div>
             </div>
-        </footer>
+        </section>
     </body>
 </html>

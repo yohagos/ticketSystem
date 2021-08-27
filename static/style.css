@@ -1,4 +1,4 @@
-@import url("https://fonts.googleapis.com/css2?family=Lato:wght@300&display=swap");
+/* @import url("https://fonts.googleapis.com/css2?family=Lato:wght@300&display=swap");
 
 :root {
   --primary-background-color: #333;
@@ -61,15 +61,14 @@ button {
   background-color: var(--primary-font-color);
 }
 
-/* ---- NavBar ---- */
+/* ---- NavBar ---- 
 
 .navbar {
   background-color: var(--secondary-background-color);
-  color: var(--secondary-font-color);
   max-width: 1100px;
   margin: 0 auto;
   overflow: auto;
-  padding: 0 40px;
+  border-bottom: var(--secondary-font-color);
 }
 
 .navbar ul {
@@ -94,10 +93,19 @@ button {
   max-width: 1100px;
   margin: 0 auto;
   overflow: auto;
-  padding: 0 40px;
+  _padding: 0 40px;
 }
 
-/* Tickets list */
+/*  Showcase 
+.showcase {
+  height: 650px;
+}
+
+.showcase-text {
+  position: relative;
+}
+
+/* Tickets list 
 
 .tickets {
   max-width: 1100px;
@@ -107,7 +115,7 @@ button {
 }
 
 .tickets .listing .card {
-  /* Add shadows to create the "card" effect */
+  /* Add shadows to create the "card" effect 
   background-color: var(--secondary-background-color);
   box-shadow: 0 4px 8px 0 rgba(255, 166, 0, 0.452);
   transition: 0.3s;
@@ -115,7 +123,7 @@ button {
   color: var(--secondary-font-color);
 }
 
-/* Tablets and under */
+/* Tablets and under 
 @media (max-width: 768px) {
   .grid,
   .showcase .grid,
@@ -145,4 +153,105 @@ button {
   .main {
     width: 500px;
   }
+}
+ */
+
+
+ @import url("https://fonts.googleapis.com/css2?family=Lato:wght@300&display=swap");
+
+:root {
+    --primary-background-color: #333;
+    --secondary-background-color: #222;
+    --primary-font-color: #fab957;
+    --secondary-font-color: #f59505;
+}
+
+* {
+    font-family: 'Lato', sans-serif;
+    margin: 10px  auto;
+    overflow: visible;
+    background-color: var(--primary-background-color);
+}
+
+.navbar
+.main
+.footer {
+    margin: 0 auto;
+    overflow: auto;
+    padding: 0 40px;
+}
+
+.navbar {
+    font-size: 24px;
+    height: 80px;
+    max-width: 1100px;
+    /* margin: 0 auto;
+    overflow: auto;
+    padding: 0 40px; */
+
+    _border: var(--secondary-background-color) solid;
+}
+
+.navbar ul {
+    display: flex;
+}
+
+.navbar a {
+    padding: 20px;
+    margin: 0 20px;
+}
+
+.navbar a:hover {
+    border-bottom: 2px var(--secondary-font-color) solid;
+}
+
+.navbar .flex {
+    justify-content: space-between;
+}
+
+ul, a {
+    list-style-type: none;
+    text-decoration: none;
+    color: var(--primary-font-color);
+}
+
+.main {
+    font-size: 20px;
+    height: 700px;
+    max-width: 1100px;
+
+    color: var(--secondary-font-color);
+
+    _border: var(--primary-background-color) solid;
+}
+
+.main .showcase-text {
+    padding: 20px;
+}
+
+.footer {
+    font-size: 16px;
+    height: 110px;
+    max-width: 1100px;
+    color: var(--primary-font-color);
+
+    _border: var(--primary-font-color) solid;
+}
+
+.form {
+  text-align: center;
+}
+
+form input {
+  font-size: 24px;
+  color: #fab957;
+}
+
+form button {
+  font-size: 20px;
+  background-color: var(--secondary-font-color);
+}
+
+.listing .card {
+  padding: 10px;
 }
