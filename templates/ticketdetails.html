@@ -22,12 +22,24 @@
     <section class="main">
         <div class="container">
             <h1>{{.Ticket.GetTicketName}}</h1>
-            <br>
-            <br>
             <p>Status: {{ .Ticket.GetTicketStatus }}</p>
             <p>Type: {{ .Ticket.GetTicketBugType }}</p>
             <p>Created By: {{ .User.GetUserName }} {{ .User.GetUserLastname }}</p>
         </div>
+        <div class="commentForm">
+            <form method="post">
+                <textarea name="update" cols="30" rows="8"></textarea>
+                <button type="submit">Post</button>
+            </form>
+        </div>
+        {{ if .DisplayComments }}
+            <div class="commentsAll">
+                <strong><a href="/{{ .GetUser.GetUsername }}">{{ .GetUser.GetUsername }}</a></strong>
+                <div>
+                    {{ .Ticket.GetComments }}
+                </div>
+            </div>
+        {{ end }}
     </section>
 
     <!-- FOOTER -->

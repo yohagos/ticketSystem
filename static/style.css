@@ -185,11 +185,6 @@ button {
     font-size: 24px;
     height: 80px;
     max-width: 1100px;
-    /* margin: 0 auto;
-    overflow: auto;
-    padding: 0 40px; */
-
-    _border: var(--secondary-background-color) solid;
 }
 
 .navbar ul {
@@ -221,8 +216,6 @@ ul, a {
     max-width: 1100px;
 
     color: var(--secondary-font-color);
-
-    _border: var(--primary-background-color) solid;
 }
 
 .main .showcase-text {
@@ -236,6 +229,15 @@ ul, a {
     color: var(--primary-font-color);
 
     _border: var(--primary-font-color) solid;
+}
+
+textarea {
+  resize: none;
+  color: #fab957;
+  box-sizing: border-box;
+  border: 3px var(--secondary-font-color) solid;
+  overflow: auto;
+  outline: none;
 }
 
 .form {
@@ -254,4 +256,38 @@ form button {
 
 .listing .card {
   padding: 10px;
+}
+
+h2 {
+  margin-bottom: 22px;
+}
+
+.main .card ,
+.main .card h3, 
+.main .card p {
+  text-align: center;
+  background-color: var(--secondary-background-color);
+}
+
+.card-link {
+  display: block;
+  text-align: center;
+
+  background-color: var(--secondary-background-color);
+  border: 0.2em var(--secondary-font-color) solid;
+  border-radius: .3em;
+  box-shadow: .2em .2em .5em var(--primary-font-color);
+  margin: .1em;
+  padding: .3em .1em;
+
+  width: 8.5em;
+}
+
+.commentForm {
+  padding-top: 3em;
+  text-align: center;
+}
+
+.commentsAll {
+  text-align: center;
 }

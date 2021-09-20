@@ -18,8 +18,16 @@ type Tickets struct {
 	CreatedBy string             `bson:"lastname,omitempty"`
 	BugType   string             `bson:"password,omitempty"`
 	Status    string             `bson:"status,omitempty"`
+	Comment   []Comments         `bson:"comments,omitempty"`
 	CreatedAt string             `bson:"createdAt,omitempty"`
 	UpdatedAt string             `bson:"updatedAt,omitempty"`
+}
+
+// Comments struct
+type Comments struct {
+	User      string `bson:"user,omitempty"`
+	Message   string `bson:"message,omitempty"`
+	CreatedAt string `bson:"createdAt,omitempty"`
 }
 
 // TestCreateTicket func
@@ -62,6 +70,11 @@ func (ticket *Tickets) GetTicketStatus() string {
 	return ticket.Status
 }
 
+// GetTicketAllComments func
+func (ticket *Tickets) GetTicketAllComments() []Comments {
+	return ticket.Comment
+}
+
 // GetTicketUpdatedAt func
 func (ticket *Tickets) GetTicketUpdatedAt() string {
 	return ticket.UpdatedAt
@@ -90,6 +103,14 @@ func (ticket *Tickets) SetTicketBugType(tic string) {
 // SetTicketStatus func
 func (ticket *Tickets) SetTicketStatus(tic string) {
 	ticket.Status = tic
+}
+
+// SetTicketComment func
+func (ticket *Tickets) SetTicketComment(user, message, createdAt string) {
+	com := ticket.GetTicketAllComments()
+	tic := Comments{user, message, createdAt}
+	com = append(com, tic)
+	ticket.Comment = com
 }
 
 // SetTicketUpdatedAt func
@@ -158,6 +179,9 @@ func TicketGetAllInformations(name string) (*Tickets, error) {
 		case "updatedAt":
 			key := fmt.Sprintf("%v", v)
 			ticket.SetTicketUpdatedAt(key)
+		case "comments":
+			key := fmt.Sprintf("%v", v)
+			fmt.Println(key)
 		default:
 
 		}
@@ -165,6 +189,13 @@ func TicketGetAllInformations(name string) (*Tickets, error) {
 
 	return &ticket, nil
 }
+
+/* func sortComments(sort interface{}) Comments {
+	for _,v := range sort {
+
+	}
+	return Comments{}
+} */
 
 // GetTicketsByUser func
 func GetTicketsByUser(username string) (*[]Tickets, error) {

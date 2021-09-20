@@ -1,11 +1,13 @@
 package routes
 
 import (
+	"fmt"
 	"log"
 	"net/http"
 	"time"
 
 	"github.com/yohagos/ticketSystem/apperrors"
+	"github.com/yohagos/ticketSystem/appsessions"
 	"github.com/yohagos/ticketSystem/models"
 	"github.com/yohagos/ticketSystem/utils"
 
@@ -75,4 +77,26 @@ func TicketDetailGETHandler(w http.ResponseWriter, r *http.Request) {
 		Ticket: ticket,
 		User:   user,
 	})
+}
+
+// TicketDetailPOSTHandler func
+func TicketDetailPOSTHandler(w http.ResponseWriter, r *http.Request) {
+	id := mux.Vars(r)["id"]
+
+	r.ParseForm()
+	update := r.PostForm.Get("update")
+
+	createdAt := utils.CreateTimeStamp()
+
+	ticket, err := models.TicketGetAllInformations(id)
+	if err != nil {
+		log.Println(err)
+	}
+
+	session, _ := appsessions.Store.Get(r, "session")
+	user := fmt.Sprintf("%v", session.Values["username"])
+
+	ticket.SetTicketComment(user, update, createdAt)
+
+	http.Redirect(w, r, "/ticket/detail/{id}", 302)
 }

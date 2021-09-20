@@ -21,18 +21,23 @@
             
         <!-- MAIN -->
         <section class="main">
-            <div class="container">
+            <!-- <div class="greetings">
                 <h1>Hello {{ .User.GetUserName }}</h1>
-            </div>
+            </div> -->
             {{ if .DisplayTickets }}
-            <br>
             <div class="tickets">
-                <h1>Your Tickets:</h1>
+                <h2>Your Tickets:</h2>
                 <div class="listing">
                     {{ range .Tickets }}
-                    <div class="card">
-                        <a href="/ticket/details/{{ .GetTicketName }}"><h3>{{ .GetTicketName }}</h3></a>
-                        <p>{{ .GetTicketStatus }}</p>
+                    <div>
+                        <a class="card-link" href="/ticket/details/{{.GetTicketName}}">
+                            <div class="card">
+                                <h3>{{ .GetTicketName }}</h3>
+                                <p>{{ .GetTicketStatus }}</p>
+                                <!-- <span class="link">
+                                </span> -->
+                            </div>
+                        </a>
                     </div>
                     {{ end }}
                 </div>

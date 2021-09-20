@@ -33,6 +33,7 @@ func NewRouter() *mux.Router {
 	router.HandleFunc("/registration", RegistrationPOSTHandler).Methods("POST")
 	router.HandleFunc("/bugtype/create", BugtypePOSTHandler).Methods("POST")
 	router.HandleFunc("/ticket/create", TicketsPOSTHandler).Methods("POST")
+	router.HandleFunc("/ticket/detail/{id}", TicketDetailPOSTHandler).Methods("POST")
 	router.HandleFunc("/verification", VerificationPOSTHandler).Methods("POST")
 
 	fs := http.FileServer(http.Dir("static/"))
