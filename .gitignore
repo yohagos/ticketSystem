@@ -1,6 +1,7 @@
 ## Editor / IDE / VSCODE Folders
 ~
 ~/.vscode-root
+.vscode
 
 ## Scripts
 runLibImport.sh
