@@ -13,5 +13,5 @@ func IsError(err error) {
 
 func CreateTimeStamp() string {
 	currentTime := time.Now()
-	return currentTime.Format("2006-01-02 15:04:05")
+	return currentTime.Format(time.RFC850)
 }

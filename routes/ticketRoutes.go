@@ -70,12 +70,22 @@ func TicketDetailGETHandler(w http.ResponseWriter, r *http.Request) {
 		log.Println(err)
 	}
 
+	comments := ticket.Comment
+	var display bool
+	if len(comments) > 0 {
+		display = true
+	}
+
 	utils.ExecuteTemplate(w, "ticketdetails.html", struct {
-		Ticket *models.Tickets
-		User   *models.User
+		Ticket          *models.Tickets
+		User            *models.User
+		DisplayComments bool
+		Comments        []models.Comments
 	}{
-		Ticket: ticket,
-		User:   user,
+		Ticket:          ticket,
+		User:            user,
+		DisplayComments: display,
+		Comments:        comments,
 	})
 }
 

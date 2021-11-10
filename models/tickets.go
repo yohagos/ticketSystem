@@ -18,20 +18,20 @@ type Tickets struct {
 	CreatedBy string             `bson:"lastname,omitempty"`
 	BugType   string             `bson:"password,omitempty"`
 	Status    string             `bson:"status,omitempty"`
-	Comment   []Comments         `bson:"comments,omitempty"`
+	Comments  []Comment          `bson:"comments,omitempty"`
 	CreatedAt string             `bson:"createdAt,omitempty"`
 	UpdatedAt string             `bson:"updatedAt,omitempty"`
 }
 
 // Comments struct
-type Comments struct {
+type Comment struct {
 	User      string `bson:"user,omitempty"`
 	Message   string `bson:"message,omitempty"`
 	CreatedAt string `bson:"createdAt,omitempty"`
 }
 
 // TestCreateTicket func
-func TestCreateTicket() {
+/* func TestCreateTicket() {
 	timestamp := utils.CreateTimeStamp()
 	ticketDocument := bson.D{
 		{Key: "name", Value: "test-12345"},
@@ -43,7 +43,7 @@ func TestCreateTicket() {
 	}
 
 	databases.CreateNewTicket(ticketDocument)
-}
+} */
 
 // GetTicketID func
 func (ticket *Tickets) GetTicketID() string {
@@ -71,8 +71,8 @@ func (ticket *Tickets) GetTicketStatus() string {
 }
 
 // GetTicketAllComments func
-func (ticket *Tickets) GetTicketAllComments() []Comments {
-	return ticket.Comment
+func (ticket *Tickets) GetTicketAllComments() []Comment {
+	return ticket.Comments
 }
 
 // GetTicketUpdatedAt func
@@ -108,9 +108,9 @@ func (ticket *Tickets) SetTicketStatus(tic string) {
 // SetTicketComment func
 func (ticket *Tickets) SetTicketComment(user, message, createdAt string) {
 	com := ticket.GetTicketAllComments()
-	tic := Comments{user, message, createdAt}
+	tic := Comment{user, message, createdAt}
 	com = append(com, tic)
-	ticket.Comment = com
+	ticket.Comments = com
 }
 
 // SetTicketUpdatedAt func
@@ -138,6 +138,7 @@ func (ticket *Tickets) CreateNewTicket() {
 		{Key: "createdby", Value: ticket.GetTicketCreatedBy()},
 		{Key: "bugtype", Value: ticket.GetTicketBugType()},
 		{Key: "status", Value: ticket.GetTicketStatus()},
+		{Key: "comments", Value: ticket.GetTicketAllComments()},
 		{Key: "createdAt", Value: timeStamp},
 		{Key: "updatedAt", Value: timeStamp},
 	}

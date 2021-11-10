@@ -6,7 +6,7 @@ import (
 
 	"github.com/yohagos/ticketSystem/apperrors"
 	"github.com/yohagos/ticketSystem/databases"
-	"github.com/yohagos/ticketSystem/utils"
+	
 
 	"golang.org/x/crypto/bcrypt"
 
@@ -127,30 +127,6 @@ func UserGetAllInformations(username string) (*User, error) {
 	user = BsonToUser(result)
 
 	return user, nil
-}
-
-// TestCreateUser func
-func TestCreateUser() {
-	pwd := "123456"
-	cost := bcrypt.DefaultCost
-	hash, err := bcrypt.GenerateFromPassword([]byte(pwd), cost)
-
-	if err != nil {
-		return
-	}
-
-	newPwd := string(hash)
-
-	timestamp := utils.CreateTimeStamp()
-	userDocument := bson.D{
-		{Key: "name", Value: "Yosef"},
-		{Key: "lastname", Value: "Hagos"},
-		{Key: "email", Value: "test@test.com"},
-		{Key: "password", Value: newPwd},
-		{Key: "createdAt", Value: timestamp},
-		{Key: "updatedAt", Value: timestamp},
-	}
-	databases.CreateNewUser(userDocument)
 }
 
 // BsonToUser func
