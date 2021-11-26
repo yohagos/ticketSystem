@@ -256,6 +256,7 @@ form button {
 
 .listing .card {
   padding: 10px;
+  overflow: auto;
 }
 
 h2 {

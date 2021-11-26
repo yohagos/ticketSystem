@@ -4,8 +4,8 @@ import (
 	"log"
 	"net/http"
 
-	"github.com/yohagos/ticketSystem/appsessions"
-	"github.com/yohagos/ticketSystem/databases"
+	"appsessions"
+	"databases"
 	"github.com/yohagos/ticketSystem/mails"
 	"github.com/yohagos/ticketSystem/routes"
 	"github.com/yohagos/ticketSystem/utils"
