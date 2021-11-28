@@ -6,10 +6,10 @@ import (
 	"net/http"
 	"time"
 
-	"github.com/yohagos/ticketSystem/apperrors"
-	"github.com/yohagos/ticketSystem/appsessions"
-	"github.com/yohagos/ticketSystem/models"
-	"github.com/yohagos/ticketSystem/utils"
+	"../apperrors"
+	"../appsessions"
+	"../models"
+	"../utils"
 
 	"github.com/gorilla/mux"
 )
@@ -70,22 +70,22 @@ func TicketDetailGETHandler(w http.ResponseWriter, r *http.Request) {
 		log.Println(err)
 	}
 
-	comments := ticket.Comment
+	/* comments := ticket.Comment
 	var display bool
 	if len(comments) > 0 {
 		display = true
-	}
+	} */
 
 	utils.ExecuteTemplate(w, "ticketdetails.html", struct {
 		Ticket          *models.Tickets
 		User            *models.User
 		DisplayComments bool
-		Comments        []models.Comments
+		/* Comments        []models.Comments */
 	}{
-		Ticket:          ticket,
-		User:            user,
-		DisplayComments: display,
-		Comments:        comments,
+		Ticket: ticket,
+		User:   user,
+		/* DisplayComments: display,
+		Comments:        comments, */
 	})
 }
 

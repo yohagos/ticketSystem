@@ -3,11 +3,11 @@ package routes
 import (
 	"net/http"
 
-	"github.com/yohagos/ticketSystem/apperrors"
-	"github.com/yohagos/ticketSystem/appsessions"
-	"github.com/yohagos/ticketSystem/middleware"
-	"github.com/yohagos/ticketSystem/models"
-	"github.com/yohagos/ticketSystem/utils"
+	"../apperrors"
+	"../appsessions"
+	"../middleware"
+	"../models"
+	"../utils"
 
 	"github.com/gorilla/mux"
 )
@@ -35,6 +35,8 @@ func NewRouter() *mux.Router {
 	router.HandleFunc("/ticket/create", TicketsPOSTHandler).Methods("POST")
 	router.HandleFunc("/ticket/detail/{id}", TicketDetailPOSTHandler).Methods("POST")
 	router.HandleFunc("/verification", VerificationPOSTHandler).Methods("POST")
+
+	router.HandleFunc("/name", GiveMeYourName).Methods("GET")
 
 	fs := http.FileServer(http.Dir("static/"))
 	router.PathPrefix("/static/").Handler(http.StripPrefix("/static/", fs))
@@ -86,4 +88,14 @@ func SaveCurrentSession(w http.ResponseWriter, r *http.Request, key string) erro
 		return err
 	}
 	return nil
+}
+
+func GiveMeYourName(w http.ResponseWriter, r *http.Request) {
+	text := r.PostFormValue("text")
+
+	if text == "yosef" {
+		w.Write([]byte("you did it!"))
+	} else {
+		w.Write([]byte("you fucked up!"))
+	}
 }

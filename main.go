@@ -4,21 +4,21 @@ import (
 	"log"
 	"net/http"
 
-	"appsessions"
-	"databases"
+	"github.com/yohagos/ticketSystem/appsessions"
+	"github.com/yohagos/ticketSystem/databases"
 	"github.com/yohagos/ticketSystem/mails"
 	"github.com/yohagos/ticketSystem/routes"
 	"github.com/yohagos/ticketSystem/utils"
 )
 
 func main() {
-	log.Println("connecting to database...")
+	log.Println("Connecting to database...")
 	databases.Init()
 
 	mails.EmailInit()
 	appsessions.SessionInit()
 
-	log.Println("loading templates...")
+	log.Println("Loading templates...")
 	utils.LoadTemplate("./templates/*.html")
 
 	r := routes.NewRouter()

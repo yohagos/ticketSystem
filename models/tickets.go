@@ -4,8 +4,8 @@ import (
 	"fmt"
 	"log"
 
-	"github.com/yohagos/ticketSystem/databases"
-	"github.com/yohagos/ticketSystem/utils"
+	"../databases"
+	"../utils"
 
 	"go.mongodb.org/mongo-driver/bson"
 	"go.mongodb.org/mongo-driver/bson/primitive"

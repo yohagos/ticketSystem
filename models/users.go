@@ -4,8 +4,8 @@ import (
 	"fmt"
 	"log"
 
-	"github.com/yohagos/ticketSystem/apperrors"
-	"github.com/yohagos/ticketSystem/databases"
+	"../apperrors"
+	"../databases"
 	
 
 	"golang.org/x/crypto/bcrypt"

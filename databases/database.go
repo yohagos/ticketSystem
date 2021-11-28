@@ -33,7 +33,7 @@ func Init() {
 	if err != nil {
 		log.Println(err)
 	}
-	log.Println("Connected to MongoDB!")
+	//log.Println("Connected to MongoDB!")
 
 	UserCollection = mongoClient.Database("bugTracker").Collection("users")
 	BugTypeCollection = mongoClient.Database("bugTracker").Collection("bugtype")
