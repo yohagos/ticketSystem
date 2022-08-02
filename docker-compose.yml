@@ -1,0 +1,14 @@
+version: '3.7'
+services:
+  mongodb:
+    image: mongo:latest
+    ports:
+      - "27017:27017"
+
+  web:
+    build: .
+    ports:
+      - "8888:8888"
+    environment:
+      BUGTRACKER_EMAIL: ${BUGTRACKER_EMAIL}
+      BUGTRACKER_PW: ${BUGTRACKER_PW}
